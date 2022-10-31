@@ -3,7 +3,7 @@
 {%  block start %}
 
 <!-- jumbotron and nav -->
-<section class="colorful jumbotron mb-0" role="banner">
+<section class="jumbotron" role="banner">
     <nav class="navbar navbar-expand-lg justify-content-between navbar-dark" role="navigation">
         <div class="navbar-brand">
             <a href="index.html">Hotel Spoof
@@ -19,13 +19,9 @@
 
     <div class="container hotels-container">
 
-        <div class="row mt-2 justify-content-between">
-            <div class="col-md-8 text-white align-self-center mb-2 p-4">
-                <h1>HOTEL Place</h1>
-                <span class=""> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Harum debitis perspiciatis sed iusto
-                    eveniet neque natus quidem velit optio cumque saepe repudiandae vero, sit hic adipisci laudantium libero blanditiis
-                    animi.
-                </span>
+        <div class="">
+            <div class=""">
+                <h1>Отель Комфорт</h1>
             </div>
            
         </div>
@@ -44,17 +40,17 @@
                 </div>
                 <div class="row mt-2 justify-content-between">
                     <div class="filter-card">
-                        <h5>Filter</h5>
+                        <h5>Фильтр</h5>
                         <form action="#">
                             <div class="row form-group">
                                 <div class="col-md-12">
-                                    <label for="mintopay">Check in</label>
+                                    <label for="mintopay">Заезд</label>
                                     <p>
                                         <input type="date" name="checkin" id="checkin" class="form-control">
                                     </p>
                                 </div>
                                 <div class="col-md-12">
-                                    <label for="maxtopay">Check out</label>
+                                    <label for="maxtopay">Выезд</label>
                                     <p>
                                         <input type="date" name="checkout" id="checkout" class="form-control">
                                     </p>
@@ -76,7 +72,7 @@
 
             <div class="col-lg-9  px-4 mb-5">
                 <form>
-                <div class="row mt-3">
+                <div class="row mt-4">
                     <div class="col-md-4">
                     <div class="form-inline">
                         <label class="" for="exampleFormControlSelect1">Sort by</label>
@@ -90,27 +86,20 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-inline">
-                            <label class="" for="exampleFormControlSelect1">Search</label>
-                            <input name="search" class="form-control" value="{{search}}" placeholder="Search"> 
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-inline">
                            <label class="" for="exampleFormControlSelect1">Amenities</label>
                             <select name="amenities" class="form-control" multiple>
-                            <option value="">Choose</option>
+                            <option value="">Выберите</option>
                             {% for amenities_obj in amenities_objs %}
                             <option {% if amenities_obj.amenity_name in amenities  %} selected {%endif%}value="{{amenities_obj.amenity_name}}">{{amenities_obj.amenity_name}}</option>
                                 {% endfor %}
                         </select>
                         </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-success">Найти</button>
+                        </div>
 
                     </div>
-                    <div class="col-md-4">
-                     
-                            <button style="margin-top: 30px;" type="submit" class="btn btn-success">Find</button>
-                        </div>
+
                 </div>
                 </form>
                 
@@ -140,16 +129,16 @@
                         
                     </div>
                     <div class="col-md-2 border-left text-center more-offers">
-                        
-                        <p>Place.com</p>
-                        <p>${{hotels_obj.hotel_price}}</p>
-                        <p>Room count</p>
+
+                        <p>{{hotels_obj.hotel_price}} ₽</p>
+                        <p>Количество комнат</p>
                         <p>{{hotels_obj.room_count}}</p>
                     </div>
                     <div class="col-md-2 border-left text-center more-offers">
-                       
-                        <div class="btn btn-success">View deal </div>
-                    </div>
+                        <a  href="/hotel-detail/{{hotels_obj.uid}}">
+                            <button class=" btn btn-info">Забронировать</button>
+                        </a>
+                        </div>
                 </div>
                 {% endfor %}
                
