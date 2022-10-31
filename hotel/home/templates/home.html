@@ -3,27 +3,20 @@
 {%  block start %}
 
 <!-- jumbotron and nav -->
-<section class="jumbotron" role="banner">
+<section style="margin-top:100px" class="jumbotron" role="banner">
     <nav class="navbar navbar-expand-lg justify-content-between navbar-dark" role="navigation">
-        <div class="navbar-brand">
-            <a href="index.html">Hotel Spoof
-                <em>.</em>
-            </a>
-        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-       
     </nav>
-
     <div class="container hotels-container">
 
         <div class="">
             <div class="">
                 <h1>Отель Комфорт</h1>
             </div>
-           
+
         </div>
     </div>
 </section>
@@ -33,10 +26,6 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="row my-3">
-                    
-                   
-
-                    
                 </div>
                 <div class="row mt-2 justify-content-between">
                     <div class="filter-card">
@@ -73,20 +62,20 @@
                 <div class="col col-9">
                 <form>
                 <div class="row mt-4">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                     <div class="form-inline">
-                        <label class="" for="exampleFormControlSelect1">Sort by</label>
+                        <label class="" for="exampleFormControlSelect1">Сортировать как</label>
                         <select class="form-control" name="sort_by" id="exampleFormControlSelect1">
-                            <option value="">Recommended</option>
-                            <option {% if sort_by == 'ASC' %} selected {%endif %} value="ASC">ASC</option>
-                            <option {% if sort_by == 'DSC' %} selected {%endif %} value="DSC">DSC</option>
+                            <option value="">Популярные</option>
+                            <option {% if sort_by == 'ASC' %} selected {%endif %} value="ASC">Сначала недорогие</option>
+                            <option {% if sort_by == 'DSC' %} selected {%endif %} value="DSC">Сначала дорогие</option>
                         </select>
                     </div>
 
                     </div>
                     <div class="col-md-2">
                         <div class="form-inline">
-                           <label class="" for="exampleFormControlSelect1">Amenities</label>
+                           <label class="" for="exampleFormControlSelect1">Удобства номера</label>
                             <select name="amenities" class="form-control" multiple>
                             <option value="">Выберите</option>
                             {% for amenities_obj in amenities_objs %}
@@ -107,14 +96,14 @@
                 
 
                     
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                        
                     <a href="/hotel-detail/{{hotels_obj.uid}}">
                         <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
                     
                     </a></div>
                
-                    <div class="col-md-5">
+                    <div class="col-md-3">
                         <h5>{{hotels_obj.hotel_name}}</h5>
                         
                         <p>
@@ -127,13 +116,12 @@
                         </p>
                         
                     </div>
-                    <div class="col-md-2 border-left text-center more-offers">
+                    <div class="col-md-3 border-left text-center more-offers">
 
                         <p>{{hotels_obj.hotel_price}} ₽</p>
-                        <p>Количество комнат</p>
-                        <p>{{hotels_obj.room_count}}</p>
+                        <p>Количество комнат: {{hotels_obj.room_count}}</p>
                     </div>
-                    <div class="col-md-2 border-left text-center more-offers">
+                    <div style="margin-top:30px" class="col-md-3 border-left text-center more-offers">
                         <a  href="/hotel-detail/{{hotels_obj.uid}}">
                             <button class=" btn btn-info">Забронировать</button>
                         </a>

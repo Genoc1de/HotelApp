@@ -16,36 +16,8 @@ body {
   color: #777;
 }
 
-/* nav */
-nav {
-  margin-bottom: 1rem;
-}
-
-nav a {
-  color: white;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
-}
-
-nav a:hover,
-a:active,
-a:focus {
-  color: red;
-  outline: none;
-  text-decoration: none;
-}
-
-/* jumbotron*/
-.colorful {
-  background: #4b79a1;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to bottom, #283e51, #4b79a1);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to bottom, #283e51, #4b79a1);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  border-radius: 0px;
-  padding: 0px 0 1rem 0 !important;
+.jumbotron{
+margin-top: 50px;
 }
 
 .form-card {
@@ -463,11 +435,28 @@ h3 {
 </head>
   <body class="bg-light">
     
-<nav class="navbar fixed-top bg-secondary">
-  <div class="container-fluid">
+<nav class="navbar fixed-top px-5 bg-secondary">
     <a class="navbar-brand" href="/" style="color:white">Комфорт</a>
-
-  </div>
+        <div class="navbar" id="navbarCollapse">
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                            <a class="dropdown-item" href="/">Change password</a>
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/">Log out</a>
+                        </div>
+                    </li>
+                </ul>
+            {% else %}
+                <form class="form-inline ml-auto">
+                    <a href="{% url 'login_page' %}" class="btn btn-info">Войти</a>
+                </form>
+            {% endif %}
+        </div>
 </nav>
       {% block start %}
       {% endblock %}

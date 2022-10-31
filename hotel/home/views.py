@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, JsonResponse
 from .models import (Amenities, Hotel, HotelBooking)
 from django.db.models import Q
+from django.urls import reverse_lazy
 
 
 
@@ -60,13 +61,13 @@ def hotel_detail(request,uid):
         checkout= request.POST.get('checkout')
         hotel = Hotel.objects.get(uid = uid)
         if not check_booking(checkin ,checkout  , uid , hotel.room_count):
-            messages.warning(request, 'Hotel is already booked in these dates ')
+            messages.warning(request, 'Отель уже забронирован на эти даты ')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
         HotelBooking.objects.create(hotel=hotel , user = request.user , start_date=checkin
         , end_date = checkout , booking_type  = 'Pre Paid')
         
-        messages.success(request, 'Your booking has been saved')
+        messages.success(request, 'Ваше бронирование сохранено')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         
 
