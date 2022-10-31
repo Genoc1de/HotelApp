@@ -20,7 +20,7 @@
     <div class="container hotels-container">
 
         <div class="">
-            <div class=""">
+            <div class="">
                 <h1>Отель Комфорт</h1>
             </div>
            
@@ -59,7 +59,7 @@
                            
                             <div class="row form-group">
                                 <div class="col-md-12">
-                                    <input type="submit" class="btn btn-primary btn-block" value="Limit">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Тык">
                                 </div>
                             </div>
                         </form>
@@ -70,21 +70,21 @@
 
 
 
-            <div class="col-lg-9  px-4 mb-5">
+                <div class="col col-9">
                 <form>
                 <div class="row mt-4">
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                     <div class="form-inline">
                         <label class="" for="exampleFormControlSelect1">Sort by</label>
                         <select class="form-control" name="sort_by" id="exampleFormControlSelect1">
                             <option value="">Recommended</option>
                             <option {% if sort_by == 'ASC' %} selected {%endif %} value="ASC">ASC</option>
                             <option {% if sort_by == 'DSC' %} selected {%endif %} value="DSC">DSC</option>
-                           
                         </select>
                     </div>
+
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-2">
                         <div class="form-inline">
                            <label class="" for="exampleFormControlSelect1">Amenities</label>
                             <select name="amenities" class="form-control" multiple>
@@ -94,11 +94,10 @@
                                 {% endfor %}
                         </select>
                         </div>
-                        <div class="col-md-4">
-                            <button type="submit" class="btn btn-success">Найти</button>
-                        </div>
-
                     </div>
+                        <div class="col-md-2">
+                            <button style="margin-top:30px" type="submit" class="btn btn-success">Найти</button>
+                        </div>
 
                 </div>
                 </form>
@@ -108,7 +107,7 @@
                 
 
                     
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                        
                     <a href="/hotel-detail/{{hotels_obj.uid}}">
                         <img class="img-fluid" src="/media/{{hotels_obj.images.first.images}}" alt="Card image cap">
