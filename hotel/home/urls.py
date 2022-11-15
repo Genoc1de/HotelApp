@@ -1,5 +1,5 @@
 import django as django
-from django.urls import path
+from django.urls import path, include
 from .views import *
 from django.conf.urls.static import static
 from django.conf import settings
@@ -10,8 +10,9 @@ urlpatterns = [
     path('', home, name='home'),
     path('hotel-detail/<uid>/' , hotel_detail , name="hotel_detail"),
     path('login/', login_page, name='login_page'),
-    path('register/', register_page , name='register_page'),
-    path("logout", logout_request, name='logout'),
+    path('register/', register_page, name='register_page'),
+    path('logout/', logout_request, name='logout'),
+    path('', include('reviews.urls')),
 
 ]
 

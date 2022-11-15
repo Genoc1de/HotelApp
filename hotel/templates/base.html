@@ -332,6 +332,35 @@ h3 {
   background-color: #fff !important;
 }
 
+.nav-link-ltr {
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin: 0px 20px;
+  display: inline-block;
+  position: relative;
+  opacity: 0.75;
+}
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link::before {
+  transition: 300ms;
+  height: 10px;
+  content: "";
+  position: absolute;
+  background-color: white;
+}
+.nav-link-ltr::before {
+  width: 0%;
+  bottom: -4px;
+}
+
+.nav-link-ltr:hover::before {
+  width: 70%;
+}
 </style>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -347,10 +376,10 @@ h3 {
     <a class="navbar-brand" href="/" style="color:white">Комфорт</a>
      <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" style="background:#f7f8f3;margin-right: 400px;" href="#">Отзывы</a>
+        <a class="nav-link nav-link-ltr" style="color:white;margin-top:5px; margin-right: 100px;" href="{% url 'reviews' %}">Отзывы</a>
       </li>
-      <li class="nav-item" style="margin-right: 400px;">
-        <a class="nav-link active" href="#">О нас</a>
+      <li class="nav-item">
+        <a class="nav-link nav-link-ltr" style="color:white; margin-top:5px; margin-right: 1000px;" href="#">О нас</a>
         </li>
     </ul>
         <div class="navbar" id="navbarCollapse">
