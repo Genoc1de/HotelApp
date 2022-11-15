@@ -373,15 +373,17 @@ h3 {
   <body class="bg-light">
     
 <nav class="navbar navbar-expend-md fixed-top px-5" style="background:#002c3e">
-    <a class="navbar-brand" href="/" style="color:white">Комфорт</a>
-     <ul class="nav nav-pills">
+    <div class="nav">
+    <a class="navbar-brand" href="/" style="color:white;">Комфорт</a>
+     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link nav-link-ltr" style="color:white;margin-top:5px; margin-right: 100px;" href="{% url 'reviews' %}">Отзывы</a>
+        <a class="nav-link nav-link-ltr" style="color:white;margin-top:5px;" href="{% url 'reviews' %}">Отзывы</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link nav-link-ltr" style="color:white; margin-top:5px; margin-right: 1000px;" href="#">О нас</a>
+        <a class="nav-link nav-link-ltr" style="color:white; margin-top:5px;" href="#">О нас</a>
         </li>
     </ul>
+        </div>
         <div class="navbar" id="navbarCollapse">
             {% if user.is_authenticated %}
                 <ul class="navbar-nav ml-auto">
