@@ -1,9 +1,11 @@
-import django as django
-from django.urls import path
+from django.urls import include, path
+
+from . import views
 from .views import *
 
 urlpatterns = [
-    path('reviews', post_detail, name='post_detail'),
+    path('', PostList.as_view(), name='PostList'),
+    path('', PostDetail.as_view(), name='PostDetail'),
 
 ]
 
